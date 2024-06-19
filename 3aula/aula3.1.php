@@ -18,7 +18,11 @@
     <input type="text" name="nome" class="form-control" placeholder="Nome do cliente">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Estado/</label>
+    <label for="exampleFormControlInput1">Idade do cliente</label>
+    <input type="text" name="idade" class="form-control" placeholder="Idade do cliente">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Estado</label>
     <select name="estado" class="form-control">
       <option value="RS">RS</option>
       <option value="BA">BA</option>
