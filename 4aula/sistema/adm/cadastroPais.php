@@ -17,7 +17,7 @@
 
         <div class="form-group">
           <label for="exampleInputEmail1">Nome do País</label>
-          <input type="text" name="pais" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
+          <input type="text" name="pais" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu país">
         </div>
   
         <input type="submit" name="enviar" class="btn btn-primary" value="Cadastrar País">

@@ -13,6 +13,17 @@
     
       <h1 style="text-align: center;">Cadastro Cidade</h1>
 
+      <form method="post" action="acao/acaoCidade.php">
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Nome do Cidade</label>
+          <input type="text" name="cidade" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Sua cidade">
+        </div>
+  
+        <input type="submit" name="enviar" class="btn btn-primary" value="Cadastrar Cidade">
+
+      </form>
+
       <?php require "includes/rodape.php"; ?>
 
     </div>
