@@ -7,51 +7,40 @@
     <title>Aula 3</title>
   </head>
   <body>
-
-  <?php
-    session_start();
-    if(isset($_POST['enviar']))
-    {
-      $email = $_POST['email'];
-      $senha = $_POST['senha'];
-
-      if($email == "senac@gmail.com" && $senha == "123a")
-      {
-        $_SESSION['logar'] = TRUE;
-        header("Location: adm/index.php");
-      }
-      else
-      {
-        echo "Verifique seu usuario e senha";
-      }
-
-    }
-    else
-    {
-      echo "Clique no botão";
-    }
-
-  ?>
     
     <div class="container">
+      <?php require "includes/menu.php"; ?>
     
-    <h1>Faça seu login</h1>
+      <h1 style="text-align: center;">Envia Email</h1>
 
-    <form method="post">
+      <form method="post" action="acao/acaoEmail.php">
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Endereço de email</label>
-            <input type="email" class="form-control" name="email" placeholder="Seu email">
+          <label for="exampleInputEmail1">Digite seu nome</label>
+          <input type="text" name="nome" class="form-control" placeholder="Seu nome">
         </div>
 
         <div class="form-group">
-            <label for="exampleInputPassword1">Senha</label>
-            <input type="password" name="senha" class="form-control" placeholder="Senha">
+          <label for="exampleInputEmail1">Digite seu email</label>
+          <input type="email" name="email" class="form-control" placeholder="Seu email">
         </div>
 
-        <input style="float: right; margin-top: 50px;" type="submit" name="enviar" value="Logar" class="btn btn-danger">
-        
-    </form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Digite o assunto</label>
+          <input type="text" name="assunto" class="form-control" placeholder="Digite o assunto">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Digite a mensagem</label>
+          <textarea  class="form-control" name="mensagem" rows="3" placeholder="Digite sua mensagem"></textarea>
+        </div>
+
+        <input style="float: right; margin-top: 50px" type="submit" name="enviar" class="btn btn-primary" value="Enviar email">
+
+      </form>
+
+      <?php require "includes/rodape.php"; ?>
+
     </div>
 
 

@@ -9,9 +9,20 @@
   <body>
     
     <div class="container">
-      <?php require "includes/menu.php"; ?>
-    
-      <h1 style="text-align: center;">Seja Bem vindo</h1>
+      
+      <?php require "includes/menu.php"; 
+        session_start();
+
+        if(isset($_SESSION['logar']))
+        {
+          echo "Bem vindo";
+        }
+        else
+        {
+          header("Location: ../index.php");
+          session_destroy();
+        }
+      ?>
 
       <?php require "includes/rodape.php"; ?>
 

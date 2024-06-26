@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script> 
-    <title>Aula3.1</title>
+    <title>Atividade 2</title>
   </head>
   <body>
 
@@ -29,8 +29,12 @@
             <div class="col-md-6">
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Categoria</label>
-                    <input type="text" name="categoria" class="form-control" placeholder="Selecione...">
+                    <label for="exampleFormControlSelect1">Categoria</label>
+                    <select name="tipo" class="form-control">
+                    <option value="mu">Multipla escolha</option>
+                    <option value="as">Assinalar</option>
+                    <option value="es">Escrita</option>
+                    </select>
                 </div>
 
             </div>
@@ -38,13 +42,60 @@
             <div class="col-md-6">
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Exclusivo para</label>
-                    <input type="text" name="exclusivo" class="form-control" placeholder="Selecione...">
+                    <label for="exampleFormControlSelect1">Exclusivo para</label>
+                    <select name="materias" class="form-control">
+                    <option value="so">Sociologia</option>
+                    <option value="fi">Filosofia</option>
+                    <option value="ma">Matemática</option>
+                    <option value="ge">Geografia</option>
+                    <option value="ci">Ciências</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Resposta Opcional?</label>
+                    <select name="resposta" class="form-control">
+                    <option value="sim">Sim</option>
+                    <option value="não">Não</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Muitas alternativas</label>
+                    <select name="quantidade" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Multiplas respostas</label>
+                    <select name="quantiRes" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    </select>
                 </div>
 
             </div>
         </div>
             
+        <input style="float: right; margin-top: 50px;" type="submit" name="enviar" value="Confirmar" class="btn btn-danger">
 
 
     </div>
