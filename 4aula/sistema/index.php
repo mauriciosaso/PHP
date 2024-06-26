@@ -28,7 +28,7 @@
     }
     else
     {
-      echo "Clique no botão";
+      //echo "Clique no botão";
     }
 
   ?>
