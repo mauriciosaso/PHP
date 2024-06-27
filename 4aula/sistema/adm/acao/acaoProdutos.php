@@ -22,7 +22,7 @@
         else if(strpos($foto_tipo, "png") && $foto_tamanho <= 10000000)
         {
             move_uploaded_file($_FILES["imagem"]["tmp_name"], $caminho . $md5 . $_FILES["imagem"]["name"]);
-            header("Location: ../cadastroProdutos.php");
+            //header("Location: ../cadastroProdutos.php");
         }
         else if(empty (trim ($mensagem) ) )
         {
@@ -33,6 +33,9 @@
             header("Location: ../cadastroProdutos.php");
         }
 
+        echo "<img width='100' src='imagem/" . $md5. $_FILES["imagem"]["name"] . " ' /> ";
+        echo "</br>";
+        echo "Nome do produto: " . $produto . "</br>" . "Categoria: " . $categoria . "</br>" . "Mensagem: " . $mensagem;
     }
     else
     {
