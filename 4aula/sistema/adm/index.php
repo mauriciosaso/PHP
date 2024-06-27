@@ -15,7 +15,7 @@
 
         if(isset($_SESSION['logar']))
         {
-          echo "Bem vindo";
+          //echo "Bem vindo";
         }
         else
         {
@@ -23,6 +23,8 @@
           session_destroy();
         }
       ?>
+
+      <h1 style="text-align: center; margin-top: 50px;">Bem-vindo</h1>
 
       <?php require "includes/rodape.php"; ?>
 

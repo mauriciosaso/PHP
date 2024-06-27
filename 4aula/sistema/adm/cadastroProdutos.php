@@ -9,10 +9,57 @@
   <body>
     
     <div class="container">
-      <?php require "includes/menu.php"; ?>
-    
-      <h1 style="text-align: center;">Cadastro Produto</h1>
+      <?php 
+      
+        require "includes/menu.php"; 
+      
+        session_start();
 
+        if(isset($_SESSION['logar']))
+        {
+          //echo "Bem vindo";
+        }
+        else
+        {
+          header("Location: ../index.php");
+          session_destroy();
+        }
+      ?>
+      
+      <h1 style="text-align: center;">Cadastro Produto</h1>
+      
+      <div class="row">
+        <div class="col-md-12">
+
+          <form method="post" action="acao/acaoProdutos.php" enctype="multipart/form-data">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nome do produto</label>
+              <input type="text" name="produto" class="form-control" id="exampleInputEmail1" placeholder="Seu produto">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Categoria do produto</label>
+              <input type="text" name="categoria" class="form-control" id="exampleInputEmail1" placeholder="Categoria">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Upload de imagem</label>
+              <input type="file" class="form-control-file" name="imagem" placeholder="Escolha o arquivo">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Assunto</label>
+              <textarea class="form-control" name="mensagem" rows="3" placeholder="Digite sua mensagem"></textarea>
+            </div>
+
+            <input style="float: right; margin-top: 50px; background-color: green;" type="submit" name="enviar" class="btn btn-primary" value="Cadastrar produto">
+
+          </form> 
+
+        </div>
+      </div>
+      
       <?php require "includes/rodape.php"; ?>
 
     </div>
