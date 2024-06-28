@@ -23,6 +23,7 @@
           <a class="dropdown-item" href="cadastroEstado.php">Estado</a>
           <a class="dropdown-item" href="cadastroCidade.php">Cidade</a>
           <a class="dropdown-item" href="envioEmail.php">Envio de Email</a>
+          <a class="dropdown-item" href="avaliacao.php">Avaliação</a>
         </div>
       </li>
   <li class="nav-item">
