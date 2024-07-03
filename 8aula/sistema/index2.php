@@ -1,14 +1,14 @@
 <?php
 
     require_once "Sistema.php";
-    require_once "Cliente.php";
+    require_once "Produto.php";
 
     $sistema = new Sistema();
-    $cliente = new Cliente();
+    $produto = new Produto();
 
     if(isset($_POST['enviar']))
     {
-        echo $cliente->atributosCliente();
+        echo $produto->atributosProduto();
     }
 
 
@@ -44,8 +44,8 @@
             <div class="col-md-12">
 
                 <div class="form-group">
-                    <label for="exampleInputEmail1">CPF</label>
-                    <input type="text" class="form-control" name="cpf" placeholder="CPF">
+                    <label for="exampleInputEmail1">Preço</label>
+                    <input type="text" class="form-control" name="produto" placeholder="Preço">
                 </div>
 
             </div>

@@ -1,14 +1,14 @@
 <?php
 
     require_once "Sistema.php";
-    require_once "Cliente.php";
+    require_once "Fornecedor.php";
 
     $sistema = new Sistema();
-    $cliente = new Cliente();
+    $fornecedor = new Fornecedor();
 
     if(isset($_POST['enviar']))
     {
-        echo $cliente->atributosCliente();
+        echo $fornecedor->atributosFornecedor();
     }
 
 
@@ -44,8 +44,8 @@
             <div class="col-md-12">
 
                 <div class="form-group">
-                    <label for="exampleInputEmail1">CPF</label>
-                    <input type="text" class="form-control" name="cpf" placeholder="CPF">
+                    <label for="exampleInputEmail1">Rua</label>
+                    <input type="text" class="form-control" name="rua" placeholder="Rua">
                 </div>
 
             </div>
@@ -55,12 +55,56 @@
             <div class="col-md-12">
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Mensagem</label>
-                    <textarea class="form-control" name="mensagem" rows="3" placeholder="Sua mensagem"></textarea>
+                    <label for="exampleInputEmail1">Bairro</label>
+                    <input type="text" class="form-control" name="bairro" placeholder="Bairro">
                 </div>
 
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Numero</label>
+                    <input type="text" class="form-control" name="numero" placeholder="Numero">
+                </div>
+
+            </div>
+        </div>    
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">CNPJ</label>
+                    <input type="text" class="form-control" name="cnpj" placeholder="Cnpj">
+                </div>
+
+            </div>
+        </div>    
+        
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Telefone</label>
+                    <input type="text" class="form-control" name="telefone" placeholder="Telefone">
+                </div>
+
+            </div>
+        </div>    
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Mensagem</label>
+                    <textarea class="form-control" name="mensagem" rows="3" placeholder="Mensagem"></textarea>
+                </div>
+
+            </div>
+        </div>    
 
         <input style="float: right; margin-top: 50px; background-color: violet;" type="submit" name="enviar" class="btn btn-danger">
   
