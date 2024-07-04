@@ -3,7 +3,7 @@
         'name' => '03457072060/sistema',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '2a804ea5959e0f4591664f9b63086c3f387332cf',
+        'reference' => '61ce3c2129be81feafcc84d5f263a5fe9204a122',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '03457072060/sistema' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '2a804ea5959e0f4591664f9b63086c3f387332cf',
+            'reference' => '61ce3c2129be81feafcc84d5f263a5fe9204a122',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
