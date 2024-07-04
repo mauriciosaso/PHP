@@ -2,6 +2,7 @@
 
     require_once "Sistema.php";
     require_once "Fornecedor.php";
+    require "menu.php";
 
     $sistema = new Sistema();
     $fornecedor = new Fornecedor();

@@ -2,6 +2,7 @@
 
     require_once "Sistema.php";
     require_once "Cliente.php";
+    require "menu.php";
 
     $sistema = new Sistema();
     $cliente = new Cliente();
@@ -10,7 +11,6 @@
     {
         echo $cliente->atributosCliente();
     }
-
 
 ?>
 

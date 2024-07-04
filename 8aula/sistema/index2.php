@@ -2,6 +2,7 @@
 
     require_once "Sistema.php";
     require_once "Produto.php";
+    require "menu.php";
 
     $sistema = new Sistema();
     $produto = new Produto();
