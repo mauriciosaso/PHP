@@ -7,17 +7,13 @@ namespace Composer\Autoload;
 class ComposerStaticInit2b0518cce68c7ffd0f7d85a14dc720cc
 {
     public static $classMap = array (
-        'Classe1' => __DIR__ . '/../..' . '/sistema/Controller/Classe1.php',
-        'Classe2' => __DIR__ . '/../..' . '/sistema/Controller/Classe2.php',
-        'Classe3' => __DIR__ . '/../..' . '/sistema/Controller/Classe3.php',
-        'Classe4' => __DIR__ . '/../..' . '/sistema/Controller/Classe4.php',
-        'Classe5' => __DIR__ . '/../..' . '/sistema/Controller/Classe5.php',
-        'Classe6' => __DIR__ . '/../..' . '/sistema/Controller/Classe6.php',
-        'Classe7' => __DIR__ . '/../..' . '/sistema/Controller/Classe7.php',
-        'Classe8' => __DIR__ . '/../..' . '/sistema/Controller/Classe8.php',
-        'Classe9' => __DIR__ . '/../..' . '/sistema/Controller/Classe9.php',
+        'Cidade' => __DIR__ . '/../..' . '/sistema/Controller/Cidade.php',
+        'Cliente' => __DIR__ . '/../..' . '/sistema/Controller/Cliente.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Teste' => __DIR__ . '/../..' . '/sistema/Controller/Teste.php',
+        'Conexao' => __DIR__ . '/../..' . '/sistema/Conexao/Conexao.php',
+        'Estado' => __DIR__ . '/../..' . '/sistema/Controller/Estado.php',
+        'Funcoes' => __DIR__ . '/../..' . '/sistema/Funcoes/Funcoes.php',
+        'Pais' => __DIR__ . '/../..' . '/sistema/Controller/Pais.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
