@@ -11,6 +11,8 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Conexao' => $baseDir . '/sistema/Conexao/Conexao.php',
     'Estado' => $baseDir . '/sistema/Controller/Estado.php',
+    'Fornecedor' => $baseDir . '/sistema/Controller/Fornecedor.php',
     'Funcoes' => $baseDir . '/sistema/Funcoes/Funcoes.php',
     'Pais' => $baseDir . '/sistema/Controller/Pais.php',
+    'Usuario' => $baseDir . '/sistema/Controller/Usuario.php',
 );

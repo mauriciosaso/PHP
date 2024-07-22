@@ -1,15 +1,14 @@
 <?php
+     require_once "../../vendor/autoload.php";
 
-    require "../../vendor/autoload.php";
+     class Cliente {
 
-    class Cliente
-    {
         private $id;
         private $nome;
         private $estado;
         private $mensagem;
 
-                /**
+         /**
          * Get the value of id
          */
         public function getId()
@@ -17,6 +16,9 @@
                 return $this->id;
         }
 
+        /**
+         * Set the value of id
+         */
         public function setId($id): self
         {
                 $this->id = $id;
@@ -32,6 +34,9 @@
                 return $this->nome;
         }
 
+        /**
+         * Set the value of nome
+         */
         public function setNome($nome): self
         {
                 $this->nome = $nome;
@@ -47,6 +52,9 @@
                 return $this->estado;
         }
 
+        /**
+         * Set the value of estado
+         */
         public function setEstado($estado): self
         {
                 $this->estado = $estado;
@@ -62,6 +70,9 @@
                 return $this->mensagem;
         }
 
+        /**
+         * Set the value of mensagem
+         */
         public function setMensagem($mensagem): self
         {
                 $this->mensagem = $mensagem;
@@ -69,67 +80,62 @@
                 return $this;
         }
 
-        //Chamar conexão com banco de dados
-        public function __construct()
-        {
+       
+
+        //Chamar Conexao com Banco de dados
+        public function __construct (){
             $this->con = new Conexao();
-            $this->objfn = new Funcoes(); 
+            $this->objfn = new Funcoes();
         }
 
+        //Método para Inserir Cliente
+        public function inserirCliente($dados){
+         
+         try{
+            $this->nome = $dados['nome'];
+            $this->estado = $dados['estado'];
+            $this->mensagem = $dados['mensagem'];
 
-        //Método para inserir cliente
-        public function inserirCliente($dados)
-        {
-            try
-            {
-                $this->nome = $dados['nome'];
-                $this->estado = $dados['estado'];
-                $this->mensagem = $dados['mensagem'];
+            $cst =  $this->con->conectar()->prepare("INSERT INTO clientes (nome,estado,mensagem) VALUES (:nome,:estado, :mensagem) ");
+            $cst->bindParam(":nome" , $this->nome , PDO::PARAM_STR);
+            $cst->bindParam(":estado" , $this->estado , PDO::PARAM_INT);
+            $cst->bindParam(":mensagem" , $this->mensagem , PDO::PARAM_STR);
 
-                $cst = $this->con->conectar()->prepare("INSERT INTO clientes (nome, estado, mensagem) VALUES (:nome, :estado, :mensagem)");
-                $cst->bindParam(":nome", $this->nome, PDO::PARAM_STR);
-                $cst->bindParam(":estado", $this->estado, PDO::PARAM_INT);
-                $cst->bindParam(":mensagem", $this->mensagem, PDO::PARAM_STR);
-
-                if($cst->execute())
-                {
-                    return "ok";
-                }
-                else
-                {
-                    echo "Não deu";
-                }
+            if($cst->execute() ){
+                  return "ok";
+            } else{
+               echo "Não deu";
             }
-            catch(PDOException $ex)
-            {
-                echo $ex;
-            }
+
+         }catch(PDOExecption $ex){
+            echo $ex;
+         }
+
         }
 
-        //Método para listar clientes
-        public function selecionarCliente()
-        {
-            try
-            {
-                $cst = $this->con->conectar()->prepare("SELECT i.id, i.nome, i.mensagem, t.estado
-                FROM clientes i
-                JOIN estado t on t.id = i.estado"); 
-                $cst->execute();
+        //Método para Listar Clientes
+        public function selecionarCliente(){
+         
+                try{
 
-                return $cst->fetchAll();
-            }
+                        $cst =  $this->con->conectar()->prepare("SELECT i.id, i.nome, i.mensagem, t.estado
+                        FROM clientes i
+                        join estado t on t.id = i.estado");
 
-            catch(PDOException $ex)
-            {
-                echo $ex;
-            }
+                        $cst->execute();
+
+                        return $cst->fetchAll();
+
+                }catch(PDOException $ex){
+                        echo $ex;
+                }
         }
 
         public function selecionarEstado()
         {
             try
             {
-                $cst = $this->con->conectar()->prepare("SELECT * FROM estado"); 
+                $cst = $this->con->conectar()->prepare("SELECT id, estado FROM estado ");
                 $cst->execute();
 
                 return $cst->fetchAll();
@@ -141,82 +147,88 @@
             }
         }
 
-        //Método para recuperar o ID do banco de dados
-        public function selecionaId($dado)
-        {
-            try
-            {
-                $this->id=$this->objfcn->base64($dado, tipo:2);
-                $cst = $this->con->conectar()->prepare("SELECT id, nome, estado, mensagem FROM clientes WHERE id: idCliente");
-                $cst->bindParam(":idCliente", $this->id, PDO::PARAM_INT);
-                $cst->execute();
+        //Método para Recuper o ID do Banco de Dados
+        public function selecionaId($dado) {
+                try{
+                    $this->id = $this->objfn->base64($dado, 2);
+                    $cst = $this->con->conectar()->prepare("SELECT id, nome, estado, mensagem FROM clientes WHERE id = :idCliente ");
+                    $cst->bindParam(":idCliente", $this->id, PDO::PARAM_INT);
+    
+                        $cst->execute();
+    
+                        return $cst->fetch();
+                }
+                catch(PDOException $ex){
+                    echo $ex;
+                }
+        }
+          
+        //Método Editar   
+        public function editarCliente($dados){
+                try{
 
-                return $cst->fetch();
-            }
-            catch(PDOException $ex)
-            {
-                echo $ex;
-            }          
+                        $this->id = $this->objfn->base64($dados['func'],2);
+                        $this->nome = $dados['nome'];
+                        $this->estado = $dados['estado'];
+                        $this->mensagem = $dados['mensagem']; 
+
+                        $cst = $this->con->conectar()->prepare("UPDATE clientes SET nome = :nome ,estado = :estado, mensagem = :mensagem WHERE id = :idCliente");
+                        $cst->bindParam(":idCliente" , $this->id , PDO::PARAM_INT);
+                        $cst->bindParam(":nome" , $this->nome , PDO::PARAM_STR);
+                        $cst->bindParam(":estado" , $this->estado , PDO::PARAM_STR);
+                        $cst->bindParam(":mensagem" , $this->mensagem , PDO::PARAM_STR);
+                        
+                        if($cst->execute()){
+                                return "ok";
+                        }else{
+                                echo "Não editou";
+                        }
+
+                }catch(PDOException $ex) {
+                        echo $ex;
+                }        
+
         }
 
-        //Método para editar Cliente
-        public function editarCliente($dados)
-        {
-            try
-            {
-                $this->id=$this->objfcn->base64($dados['func'], tipo:2);
-                $this->nome = $dados['nome'];
-                $this->estado = $dados['estado'];
-                $this->mensagem = $dados['mensagem'];
-
-                $cst = $this->con->conectar()->prepare("UPDATE clientes SET nome=:nome, estado=:estado, mensagem=:mensagem WHERE id: idCliente");
-                $cst->bindParam(":idCliente", $this->id, PDO::PARAM_INT);
-                $cst->bindParam(":nome", $this->nome, PDO::PARAM_STR);
-                $cst->bindParam(":estado", $this->estado, PDO::PARAM_STR);
-                $cst->bindParam(":mensagem", $this->mensagem, PDO::PARAM_STR);
+        //Método para Deletar 
+        public function deletarId($dado){
+                try{
+                        $this->id = $this->objfn->base64($dado, 2);
             
-                if($cst->execute())
-                {
-                    return "Editar";
-                }
-                else
-                {
-                    echo "Não deu";
-                }
-
-            }
-            catch(PDOException $ex)
-            {
-                echo $ex;
-            }          
+                        $cst = $this->con->conectar()->prepare("DELETE FROM clientes WHERE id= :idCliente");
+                        $cst->bindParam(":idCliente" , $this->id, PDO::PARAM_INT);
+                            if($cst->execute()){
+                                return "ok";
+                            } else{
+                                return "Não deu";
+                            }
+                        }catch(PDOException $ex){
+                            echo $ex;
+                        }
         }
-
-        public function deletarId($dados)
-        {
-            try
-            {
-                $this->id=$this->objfcn->base64($dados, tipo:2);
-                $cst = $this->con->conectar()->prepare("DELETE FROM clientes WHERE id: idCliente");
-                $cst->bindParam(":idCliente", $this->id, PDO::PARAM_INT);
-                $cst->execute();
-
-                return $cst->fetch();
-
-                if($cst->execute())
+       
+        public function querySelecionaFiltro($filtro) {
+                try
                 {
-                    return "Deletar";
-                }
-                else
-                {
-                    echo "Não deu";
-                }
-            }
-            catch(PDOException $ex)
-            {
-                echo $ex;
-            }          
-        }
-    }
+                    $cst = $this->con->conectar()->prepare("
+                        SELECT i.id, i.nome, i.mensagem, e.estado
+                        FROM clientes i
+                        JOIN estado e ON e.id = i.estado
+                        WHERE i.nome LIKE :filtro
+                    ");
         
+                $filtro = "%$filtro%";
+                $cst->bindParam(':filtro', $filtro, PDO::PARAM_STR);
+        
+                $cst->execute();
+        
+                return $cst->fetchAll();
+            }
+            catch (PDOException $ex)
+            {
+                echo $ex->getMessage(); // Alterei para exibir a mensagem de erro ao invés do objeto
+            }
+        }
+} 
 
 ?>
