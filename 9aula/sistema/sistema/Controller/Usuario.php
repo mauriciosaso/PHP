@@ -263,7 +263,7 @@
                         $rst = $cst->fetch();
                         $_SESSION['logado'] = 'logar';
                         $_SESSION['func'] = $rst['id'];
-                        header("Location:  ../View/index.php");
+                        header("Location:  ../View/home.php");
                 }
 
                 }catch(PDOException $ex){

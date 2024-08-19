@@ -4,6 +4,18 @@
 
     $usuario = new Usuario();
     $objfn = new Funcoes();
+    $usuario = new Usuario();
+
+    session_start();
+
+     if($_SESSION["logado"] == "logar")
+     {
+         $usuario->verificaUsuario($_SESSION["func"]);
+     }
+     else
+     {
+         header("Location:logar.php");
+     }
 
     //Saber qual é a ação Editar e Deletar
     if(isset($_GET['acao'])){

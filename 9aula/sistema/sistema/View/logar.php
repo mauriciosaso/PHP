@@ -19,7 +19,7 @@
 
 <div class="container">
     <form action="" method="post">
-        <div class="form-group">
+        <div style="margin-top: 50px;" class="form-group">
             <label for="exampleInputEmail1">Endereço de email</label>
             <input type="email" name="email" class="form-control"  aria-describedby="emailHelp" placeholder="Seu email">
         </div>

@@ -5,7 +5,7 @@
     session_start();
     $usuario = new Usuario();
     
-    if($_SESSION['logado'] == "logar")
+    if(isset($_SESSION['logado']) == "logar")
     {
         $usuario->deslogarUsuario();
         header("Location: logar.php");

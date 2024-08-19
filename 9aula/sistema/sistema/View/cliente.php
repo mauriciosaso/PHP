@@ -3,6 +3,18 @@
     require "../../vendor/autoload.php";
     $cliente = new Cliente();
     $objfn = new Funcoes();
+    $a = new Usuario();
+
+    session_start();
+
+     if($_SESSION["logado"] == "logar")
+     {
+         $a->verificaUsuario($_SESSION["func"]);
+     }
+     else
+     {
+         header("Location:logar.php");
+     }
 
     //Saber qual é a ação Editar e Deletar
     if(isset($_GET['acao'])){
@@ -20,7 +32,7 @@
                }
              break;
         } 
-     }
+    }
     
 
 ?>

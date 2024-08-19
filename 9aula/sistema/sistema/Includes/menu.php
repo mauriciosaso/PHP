@@ -1,6 +1,6 @@
 <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" href="../View/index.php">Home</a>
+    <a class="nav-link active" href="../View/home.php">Home</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../View/cliente.php">Cliente</a>
@@ -9,7 +9,7 @@
     <a class="nav-link" href="../View/fornecedor.php">Fornecedor</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#.php">Produto</a>
+    <a class="nav-link" href="../View/produtos.php">Produto</a>
   </li>
   <Li class="nav-item">
     <a class="nav-link" href="../View/usuario.php">Usuario</a>
